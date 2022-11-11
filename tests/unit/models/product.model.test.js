@@ -9,13 +9,11 @@ describe('Testes de unidade do model de produtos', function () {
   afterEach(function () {
     sinon.restore();
   });
-
   it('Recuperando a lista de produtos', async function () {
     sinon.stub(connection, 'execute').resolves([products]);
     const result = await productModel.findAll();
     expect(result).to.be.deep.equal(products);
   });
-
   it('Recuperando um produto a partir do seu id', async function () {
     sinon.stub(connection, 'execute').resolves([[products[0]]]);
     const result = await productModel.findById(1);

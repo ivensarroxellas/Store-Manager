@@ -3,11 +3,6 @@ const { validateId /* validateNewProduct */ } = require('./validations/validatio
 
 const findAll = async () => {
   const products = await productModel.findAll();
-  if (products.length > 1) {
-    const productsInOrder = products
-      .sort((a, b) => a - b);
-    return { type: null, message: productsInOrder };
-  }
   return { type: null, message: products };
 };
 
@@ -16,6 +11,7 @@ const findById = async (productId) => {
   if (error.type) return error;
 
   const product = await productModel.findById(productId);
+  if (!product) return { type: 'NOT_FOUND', message: 'Product not found' };
   if (product) return { type: null, message: product };
 };
 

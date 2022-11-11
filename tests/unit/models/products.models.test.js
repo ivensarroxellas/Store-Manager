@@ -6,7 +6,26 @@ const connection = require('../../../src/models/connection');
 const { products } = require('../../mocks/products');
 
 describe('Testes de unidade do model de pessoas passageiras', function () {
-  afterEach(sinon.restore);
+  beforeEach (function () {
+    const products = [
+      {
+        "id": 1,
+        "name": "Martelo de Thor"
+      },
+      {
+        "id": 2,
+        "name": "Traje de encolhimento"
+      },
+      {
+        "id": 3,
+        "name": "Escudo do Capitão América"
+      }
+    ]
+    sinon.stub(StoreManager, 'findaAll').resolves(products)
+  })
+  afterEach(function () {
+    sinon.restore;
+  })
 
   it('Recuperando a lista de produtos', async function () {
     sinon.stub(connection, 'execute').resolves([products]);

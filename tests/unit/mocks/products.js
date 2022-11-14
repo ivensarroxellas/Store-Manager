@@ -13,6 +13,12 @@ const products = [
   }
 ]
 
+const productNotFound = { "message": "Product not found" };
+
+const invalidInput = { type: 'INPUT_VALUE', message: '"id" tem que ser um número' };
+
 module.exports = {
   products,
+  productNotFound,
+  invalidInput,
 }

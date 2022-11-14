@@ -14,16 +14,16 @@ const listProducts = async (_req, res) => {
   if (type) return res.status(404).json({ message: 'Product not found' });
   return res.status(200).json(message);
 };
-/*
+
 const createProduct = async (req, res) => {
   const { name } = req.body;
-  const { type, message } = await productService.createProduct(name);
-  if (type) return res.status(errorMap.mapError(type)).json(message);
+  const { type, message } = await productService.createNewProduct(name);
+  if (type) return res.status(444).json({ message: 'Erro na criação' });
   return res.status(201).json(message);
-}; */
+};
 
 module.exports = {
   listProducts,
   getProduct,
-  /* createProduct, */
+  createProduct,
 };

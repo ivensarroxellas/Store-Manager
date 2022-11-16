@@ -21,4 +21,9 @@ describe('Testes de unidade do model de produtos', function () {
     const result = await productModel.findById(1);
     expect(result).to.be.deep.equal(products[0]);
   });
+  it('Verifica se é possível deletar um produto', async function () {
+    sinon.stub(connection, 'execute').resolves(true);
+    const result = await productModel.deleteProduct(1);
+    expect(result).to.be.equal(true);
+    });
 });

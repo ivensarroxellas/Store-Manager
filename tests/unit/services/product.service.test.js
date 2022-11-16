@@ -24,7 +24,6 @@ describe('Testes da camada Product Service', function () {
   it('Verifica se retorna mensagem de erro caso ID não seja', async function () {
     sinon.stub(productModel, 'findById').resolves(invalidInput);
     const result = await productService.findById('dd');
-    console.log('TESTE', result.message)
     expect(result.message).to.deep.equal(invalidInput.message);
   });
 });

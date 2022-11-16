@@ -17,8 +17,20 @@ const productNotFound = { "message": "Product not found" };
 
 const invalidInput = { type: 'INPUT_VALUE', message: '"id" tem que ser um número' };
 
+const productsAfterDelete = [
+  {
+    "id": 1,
+    "name": "Martelo de Thor"
+  },
+  {
+    "id": 2,
+    "name": "Traje de encolhimento"
+  }
+]
+
 module.exports = {
   products,
   productNotFound,
   invalidInput,
+  productsAfterDelete,
 }

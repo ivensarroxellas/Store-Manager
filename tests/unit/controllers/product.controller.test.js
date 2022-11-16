@@ -5,7 +5,7 @@ const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
 const { productService } = require('../../../src/services');
 const { productController } = require('../../../src/controllers');
-const { products, productNotFound } = require('../mocks/products');
+const { products, productNotFound, productsAfterDelete } = require('../mocks/products');
 
 describe('Testes da camada Product Controler', function () {
   afterEach(sinon.restore);
@@ -35,5 +35,14 @@ describe('Testes da camada Product Controler', function () {
     res.json = sinon.stub().returns();
     await productController.getProduct(req, res);
     expect(res.json).to.have.been.calledWith(productNotFound.message);
+  });
+  it('Verifica se deleta produto, retorna status 204', async function () {
+    sinon.stub(productService, 'deleteProduct').resolves(productsAfterDelete);
+    const req = { params: { id: 3 } };
+    const res = {};
+    res.status = sinon.stub().returns(res);
+    res.json = sinon.stub().returns();
+    await productController.deleteProduct(req, res);
+    expect(res.status).to.have.been.calledWith(204);
   });
 });

@@ -1,6 +1,6 @@
 const express = require('express');
 const { listProducts, getProduct, createProduct,
-  updateProduct } = require('../controllers/product.controller');
+  updateProduct, deleteProduct } = require('../controllers/product.controller');
 
 const validateNewProductField = require('../middlewares/validateNewProductField');
 
@@ -10,5 +10,6 @@ router.get('/', listProducts);
 router.get('/:id', getProduct);
 router.post('/', validateNewProductField, createProduct);
 router.put('/:id', validateNewProductField, updateProduct);
+router.delete('/:id', deleteProduct);
 
 module.exports = router;

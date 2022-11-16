@@ -4,18 +4,32 @@
     "colId": "history",
     "containerId": "",
     "name": "http://localhost:3000",
-    "url": "http://localhost:3000/products/1",
-    "method": "PUT",
+    "url": "http://localhost:3000/products/",
+    "method": "GET",
     "sortNum": 0,
     "created": "2022-11-11T19:25:57.606Z",
-    "modified": "2022-11-14T19:59:54.234Z",
+    "modified": "2022-11-16T17:36:19.353Z",
     "headers": [],
     "params": [],
     "body": {
       "type": "json",
-      "raw": "{\n  \"name\": \"Martelo de Thor Stormbreaker\"\n}",
+      "raw": "{\n  \"id\": \"1\"\n}",
       "form": []
     },
+    "tests": []
+  },
+  {
+    "_id": "430de8b5-4046-4f7f-9cb1-2e27bf0fcf7c",
+    "colId": "history",
+    "containerId": "",
+    "name": "locahost:3000",
+    "url": "http://localhost:3000/products/1",
+    "method": "DELETE",
+    "sortNum": 0,
+    "created": "2022-11-16T17:33:43.752Z",
+    "modified": "2022-11-16T17:55:23.196Z",
+    "headers": [],
+    "params": [],
     "tests": []
   }
 ]

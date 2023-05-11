@@ -23,13 +23,18 @@
     "colId": "history",
     "containerId": "",
     "name": "locahost:3000",
-    "url": "http://localhost:3000/sales/1",
-    "method": "DELETE",
+    "url": "http://localhost:3000/sales",
+    "method": "POST",
     "sortNum": 0,
     "created": "2022-11-16T17:33:43.752Z",
-    "modified": "2022-11-16T20:47:04.347Z",
+    "modified": "2022-11-16T21:57:37.466Z",
     "headers": [],
     "params": [],
+    "body": {
+      "type": "json",
+      "raw": "[\n  {\n    \"productId\": 1,\n    \"quantity\": 50\n  }\n]",
+      "form": []
+    },
     "tests": []
   }
 ]

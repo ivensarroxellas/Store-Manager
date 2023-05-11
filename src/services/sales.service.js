@@ -1,4 +1,5 @@
 const salesModel = require('../models/sales.model');
+const { validateQuantity } = require('./validations/validationInputValues');
 
 const findAllSales = async () => {
   const sales = await salesModel.findAllSales();
@@ -12,6 +13,10 @@ const findSalesById = async (saleId) => {
 };
 
 const createNewSale = async (SaleInfo) => {
+  const { quantity } = SaleInfo[0];
+  const error = validateQuantity({ quantity });
+  if (error.type) return error;
+
   const { id } = await salesModel.createNewSale(SaleInfo);
   return { type: null, message: id };
 };

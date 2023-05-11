@@ -48,6 +48,18 @@ const createNewSale = async (saleArr) => {
   return { id: insertId };
 };
 
+const createSaleProduct = async (productInfo, saleId) => {
+  connection.execute('INSERT INTO sales_products (sale_id, product_id, quantity, date) VALUES(?, ?, ?, NOW())',
+    [saleId, productId, quantity]);
+  return true;
+};
+
+const createNewSale = async (saleArr) => {
+  const { productId, quantity } = productInfo;
+  await Promise.all(saleArr.map((productInfo) => createSaleProduct(productInfo, insertId)));
+  return { id: insertId };
+};
+
 const updateSale = async (saleId, saleInfo) => {
   const { productId, quantity } = saleInfo;
   await connection.execute(
